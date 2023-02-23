@@ -95,7 +95,7 @@ paths:
       responses:
         "200":
           description: "Successfully read ONE person"
-  /people/by_l_name/{lname1}:
+  /people/by_l_name1/{lname1}:
     get:
       operationId: "people.read_all_by_lname1"
       tags:
