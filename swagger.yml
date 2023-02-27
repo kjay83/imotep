@@ -16,7 +16,7 @@ components:
       required:
         - lname1
       properties:
-        uref:
+        unique_reference:
           type: "string"
         lname1:
           type: "string"
@@ -43,8 +43,8 @@ components:
         sex:
           type: "string"
   parameters:
-    uref:
-      name: "uref"
+    unique_reference:
+      name: "unique_reference"
       description: "unique reference of the person to get"
       in: path
       required: True
@@ -84,17 +84,43 @@ paths:
       responses:
         "201":
           description: "Successfully created person"
-  /people/{uref}:
+  /people/{unique_reference}:
     get:
-      operationId: "people.read_one_by_uref"
+      operationId: "people.read_one_by_unique_reference"
       tags:
         - People
       summary: "Read one person using unique reference"
       parameters:
-        - $ref: "#/components/parameters/uref"
+        - $ref: "#/components/parameters/unique_reference"
       responses:
         "200":
           description: "Successfully read ONE person"
+    put:
+      tags:
+        - People
+      operationId: "people.update"
+      summary: "Update a person"
+      parameters:
+        - $ref: "#/components/parameters/unique_reference"
+      responses:
+        "200":
+          description: "Successfully updated a person"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              x-body-name: "person"
+              $ref: "#/components/schemas/Person"
+    delete:
+      tags:
+        - People
+      operationId: "people.delete"
+      summary: "Delete a person"
+      parameters:
+        - $ref: "#/components/parameters/unique_reference"
+      responses:
+        "204":
+          description: "Successfully deleted person"
   /people/by_l_name1/{lname1}:
     get:
       operationId: "people.read_all_by_lname1"
