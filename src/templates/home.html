@@ -10,5 +10,10 @@
     <h1>
         Hello, World HOME!
     </h1>
+    <ul>
+        {% for person in people %}
+        <li>{{ person.lname1 }} {{ person.fname1 }} </li>
+        {% endfor %}
+    </ul>
 </body>
 </html>

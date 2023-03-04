@@ -1,20 +1,26 @@
 # server.py
 
 from flask import render_template # Remove: import Flask
-import connexion
+#import connexion
+import config
+from models import People
 
 
 def create_app():
-    app1 = connexion.FlaskApp(__name__, specification_dir="./")   
-    app1.add_api("swagger.yml")
+    app1 = config.connex_app
+    app1.add_api(config.basedir / "swagger.yml")
+
+    @app1.route("/")
+    def home():
+        people = People.query.all()
+        return render_template("home.html", people=people)
+
+    # app1 = connexion.FlaskApp(__name__, specification_dir="./")   
+    # app1.add_api("swagger.yml")
 
     @app1.route("/index")
     def index():
         return render_template("index.html")
-
-    @app1.route("/")
-    def home():
-        return render_template("home.html")
     
     return app1
 

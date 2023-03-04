@@ -2,7 +2,7 @@ import sqlite3
 conn = sqlite3.connect("people.db")
 people = [
     "1, 'DE-JARGET_OSCAR',\
-        'De-Jarget', 'Jarget',\
+        'DE-JARGET', 'Jarget',\
         'Oscar','',\
         'oscar@gmail.com','',\
         'MSF74, pnr','',\
@@ -10,7 +10,7 @@ people = [
         'F',\
         '2022-10-08 09:15:10'",
     "2, 'KENT_CLARK',\
-        'Kent', '',\
+        'KENT', '',\
         'Clark','Balist',\
         'ckent@gmail.com','ckent2@gmail.com',\
         'MSFKENT, pnr','MSFKENT, paris',\
@@ -18,7 +18,7 @@ people = [
         'M',\
         '2022-10-08 09:15:23'",
     "3, 'LENNON_JOHN',\
-        'Lennon', '',\
+        'LENNON', '',\
         'John','Blinker',\
         'jleonon@gmail.com','',\
         'MSF LENNONG, pnr','',\
@@ -26,7 +26,7 @@ people = [
         'M',\
         '2022-10-08 09:15:33'",
     "4, 'LENNON_MARTHA',\
-        'Lennon', '',\
+        'LENNON', '',\
         'Martha','',\
         'lmartha@gmail.com','',\
         'MSF LENNONG, pnr','',\
